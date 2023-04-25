@@ -15,7 +15,7 @@ jobs:
       - name: update image
         uses: mikefarah/yq@master
         with:
-          cmd: yq eval '.spec.template.spec.containers[0].image = "${{ github.event.client_payload.image }}"' -i manifest/deployment.yaml
+          cmd: yq eval '.spec.template.spec.containers[0].image ="${{ github.event.client_payload.image }}"' -i manifest/deployment.yaml
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
